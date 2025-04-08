@@ -44,7 +44,7 @@ def send_model_name(message):
         del user_message_history[user_id]
         bot.reply_to(message, 'Bye-bye!')
     else:
-        bot.reply_to(message, 'Oooooops..........')
+        bot.reply_to(message, 'I don\'t know you. Nothing to delete')
 
 
 user_message_history = {}
@@ -70,7 +70,7 @@ def handle_message(message):
     current_date_time = datetime.datetime.now().strftime("%d %B %Y, %H:%M MSK")
     messages = [{
         "role": "system",
-        "content": f"Текущая дата: {current_date_time}"
+        "content": f"Current date : {current_date_time}"
     }]
 
     for msg in user_history:
@@ -98,8 +98,6 @@ def handle_message(message):
     else:
         txt = 'An error occurred while trying to get the model response...'
         bot.reply_to(message, txt)
-
-    print('do')
 
 
 # Запуск бота
